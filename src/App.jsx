@@ -4,6 +4,10 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import Stats from './components/Stats'
 import ProductsSection from './components/ProductsSection'
+import Steps from './components/Steps'
+import Pricing from './components/Pricing'
+import CallToAction from './components/CallToAction'
+import Footer from './components/Footer'
 
 function App() {
   const [cart, setCart] = useState([])
@@ -51,7 +55,11 @@ function App() {
           onRemove={removeFromCart}
           onCheckout={clearCart}
         />
+        <Steps />
+        <Pricing />
+        <CallToAction />
       </main>
+      <Footer />
       <ToastContainer position="top-right" autoClose={2500} />
     </div>
   )

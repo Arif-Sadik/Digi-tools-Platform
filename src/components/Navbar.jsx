@@ -5,7 +5,7 @@ const navLinks = [
   { label: 'Testimonials', href: '#testimonials' },
 ]
 
-function Navbar() {
+function Navbar({ cartCount = 0 }) {
   return (
     <header className="bg-white">
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
@@ -41,7 +41,7 @@ function Navbar() {
             Get Started
           </a>
           <div
-            aria-label="Cart with 0 items"
+            aria-label={`Cart with ${cartCount} items`}
             className="relative flex items-center justify-center rounded-lg p-2 text-slate-700"
           >
             <svg
@@ -59,7 +59,7 @@ function Navbar() {
               />
             </svg>
             <span className="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full bg-violet-600 text-xs font-semibold text-white">
-              0
+              {cartCount}
             </span>
           </div>
         </div>

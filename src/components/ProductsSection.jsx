@@ -1,9 +1,10 @@
 import products from '../data/products.json'
 import ProductCard from './ProductCard'
 
-function ProductsSection({ cart, activeTab, onTabChange, onBuyNow }) {
+function ProductsSection({ cart, activeTab, onTabChange, onBuyNow, onRemove, onCheckout }) {
   const tabClass =
     'rounded-lg px-6 py-2.5 text-sm font-medium transition-colors'
+  const cartTotal = cart.reduce((total, product) => total + product.price, 0)
   return (
     <section id="products" className="bg-white py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -52,8 +53,9 @@ function ProductsSection({ cart, activeTab, onTabChange, onBuyNow }) {
           </div>
         ) : (
           <div className="mx-auto mt-10 max-w-2xl rounded-2xl border border-slate-200 bg-white p-8">
+            <h3 className="text-xl font-semibold text-slate-900">Your Cart</h3>
             {cart.length === 0 ? (
-              <div className="text-center">
+              <div className="py-8 text-center">
                 <p className="text-lg font-semibold text-slate-900">
                   Your cart is empty
                 </p>
@@ -62,21 +64,54 @@ function ProductsSection({ cart, activeTab, onTabChange, onBuyNow }) {
                 </p>
               </div>
             ) : (
-              <ul className="space-y-3">
-                {cart.map((item) => (
-                  <li
-                    key={item.id}
-                    className="flex items-center justify-between rounded-lg border border-slate-200 px-4 py-3"
-                  >
-                    <span className="text-sm font-medium text-slate-900">
-                      {item.name}
-                    </span>
-                    <span className="text-sm text-slate-600">
-                      ${item.price}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+              <>
+                <ul className="mt-6 space-y-4">
+                  {cart.map((item) => (
+                    <li
+                      key={item.id}
+                      className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-slate-200 px-4 py-3"
+                    >
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={item.icon}
+                          alt={item.name}
+                          className="h-10 w-10 rounded-lg"
+                        />
+                        <span className="text-sm font-medium text-slate-900">
+                          {item.name}
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <span className="text-sm font-semibold text-slate-900">
+                          ${item.price}
+                        </span>
+                        <button
+                          type="button"
+                          onClick={() => onRemove(item.id)}
+                          className="text-sm font-medium text-red-500 transition-colors hover:text-red-600"
+                        >
+                          Remove
+                        </button>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+                <div className="mt-6 flex items-center justify-between border-t border-slate-200 pt-4">
+                  <span className="text-base font-semibold text-slate-900">
+                    Total:
+                  </span>
+                  <span className="text-lg font-bold text-slate-900">
+                    ${cartTotal}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  onClick={onCheckout}
+                  className="mt-6 w-full rounded-lg bg-violet-600 px-4 py-3 text-sm font-medium text-white transition-colors hover:bg-violet-700"
+                >
+                  Proceed to Checkout
+                </button>
+              </>
             )}
           </div>
         )}

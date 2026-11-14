@@ -14,6 +14,16 @@ function App() {
     }
   }
 
+  function removeFromCart(productId) {
+    setCart((currentCart) =>
+      currentCart.filter((product) => product.id !== productId)
+    )
+  }
+
+  function clearCart() {
+    setCart([])
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <Navbar cartCount={cart.length} />
@@ -25,6 +35,8 @@ function App() {
           activeTab={activeTab}
           onTabChange={setActiveTab}
           onBuyNow={addToCart}
+          onRemove={removeFromCart}
+          onCheckout={clearCart}
         />
       </main>
     </div>

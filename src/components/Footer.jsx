@@ -2,7 +2,7 @@ const footerColumns = [
   {
     heading: 'Product',
     links: [
-      { label: 'Features', href: '#features' },
+      { label: 'Features' },
       { label: 'Pricing', href: '#pricing' },
       { label: 'Templates' },
       { label: 'Integrations' },

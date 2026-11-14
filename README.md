@@ -1,16 +1,42 @@
-# React + Vite
+# DigiTools Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A digital tools buying website built with React. Users can browse premium digital products like AI writing tools, design templates, and stock assets, add them to a cart, and proceed to a simulated checkout.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- View digital products with prices, tags, and feature lists
+- Add products to cart from the product cards
+- Remove individual products from the cart
+- View the cart total calculated from selected products
+- Checkout clears the cart
+- Toast notifications for cart actions using React-Toastify
+- Responsive layout for mobile, tablet, and desktop
 
-## React Compiler
+## Technologies
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React
+- Vite
+- Tailwind CSS
+- JavaScript
+- React-Toastify
 
-## Expanding the Oxlint configuration
+## How to Run
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+1. Install the dependencies:
+
+```
+npm install
+```
+
+2. Start the development server:
+
+```
+npm run dev
+```
+
+3. Open the local URL shown in the terminal (for example `http://localhost:5173/`) in your browser.
+
+## Repository and Live Site
+
+- GitHub Repository: (add your repository link here)
+- Live Site: (add your live site link here)
